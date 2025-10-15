@@ -13,11 +13,12 @@ type MonthEntry = {
 
 export function PhotoCard({ entry }: { entry: MonthEntry }): JSX.Element {
   const [left, top] = (entry.imageOffset ?? '0 0').split(/\s+/)
+  const src = `${import.meta.env.BASE_URL}${entry.photo.replace(/^\//, '')}`
   return (
     <article className={styles.card}>
       <div className={styles.cardImageWrap}>
         <img
-          src={entry.photo}
+          src={src}
           alt={entry.alt}
           className={styles.cardImage}
           style={{ left, top }}
